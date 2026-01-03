@@ -6,6 +6,8 @@ const TotalPriceAmount = () => {
 
   const newTotal = priceDetails.reduce((acc, item) => acc + item.price, 0);
 
+  
+
   return (
     <>
       <hr />

@@ -7,6 +7,22 @@ const CartStoreProvider = ({ children }) => {
   const [cart, setCart] = useState(DEFAULT_VALUE);
   const [products, setProducts] = useState([]);
   const [priceDetails, setPriceDEtails] = useState([]);
+    const [count, setCount] = useState(1);
+    // const [doublePrice, setItemPrice] = useState(item.price);
+    
+
+    
+  const handleAddButtton = () => {
+    setCount(count + 1);
+    // setItemPrice(doublePrice ** 2);
+    newDoublePrice();
+    
+  };
+
+  
+  const handleMinusButton = () => {
+    setCount(count - 1);
+  };
 
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
@@ -22,6 +38,7 @@ const CartStoreProvider = ({ children }) => {
   const AddToCart = (item) => {
     setCart((prev) => [...prev, item]);
     setPriceDEtails((prev) => [...prev, item]);
+    console.log(item);
   };
 
   const searchCart = () => {};
@@ -32,7 +49,11 @@ const CartStoreProvider = ({ children }) => {
         value={{
           products,
           cart,
+          count,
           priceDetails,
+          handleAddButtton,
+          handleMinusButton,
+          setCount,
           deleteCart,
           AddToCart,
           searchCart,

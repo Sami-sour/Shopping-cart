@@ -2,19 +2,11 @@ import React, { useContext, useState } from "react";
 import { CartStoreItems } from "../../store/CartStoreContext";
 
 const CartLayout = ({ item }) => {
-  const { deleteCart } = useContext(CartStoreItems);
+  const { deleteCart, handleAddButtton, count, handleMinusButton } = useContext(CartStoreItems);
 
-  const [count, setCount] = useState(1);
 
-  const handleAddButtton = () => {
-    console.log("add button is clicked ");
-    setCount(count + 1);
-  };
+  
 
-  const handleMinusButton = () => {
-    console.log("minus button");
-    setCount(count - 1);
-  };
 
   return (
     <>

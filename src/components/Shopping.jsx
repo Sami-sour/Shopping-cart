@@ -1,10 +1,12 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { CartStoreItems } from "../store/CartStoreContext";
 
 const Shopping = ({ item }) => {
-  const { AddToCart } = useContext(CartStoreItems);
+  const { AddToCart , cart} = useContext(CartStoreItems);
 
   if (!item) return null;
+
+  const isAdded = cart.some((cartItem) => cartItem.id === item.id);
 
   return (
     <>
@@ -22,8 +24,9 @@ const Shopping = ({ item }) => {
 
           <div className="buttons">
             <div className="cart">
-              <button className="cart-btn" onClick={() => AddToCart(item)}>
-                Cart
+              <button className="cart-btn" onClick={() => AddToCart(item)}
+                disabled={isAdded}>
+                { isAdded ? "Added" : "Cart"}
               </button>
             </div>
             <div className="buy">
