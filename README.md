@@ -1,6 +1,6 @@
 # React + Vite
 
-<a href="https://sami-sour.github.io/Shopping-cart/">Click Here</a> to Shop
+<a href="https://sami-sour.github.io/Shopping-Cart/">Click Here</a> to Shop
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
